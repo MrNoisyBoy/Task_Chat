@@ -1,0 +1,55 @@
+import datetime
+
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class RegisterRequest(_message.Message):
+    __slots__ = ("login", "password")
+    LOGIN_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    login: str
+    password: str
+    def __init__(self, login: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
+
+class SendResponse(_message.Message):
+    __slots__ = ("success", "error", "id", "server_time")
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    SERVER_TIME_FIELD_NUMBER: _ClassVar[int]
+    success: bool
+    error: str
+    id: str
+    server_time: _timestamp_pb2.Timestamp
+    def __init__(self, success: bool = ..., error: _Optional[str] = ..., id: _Optional[str] = ..., server_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class RegisterResponse(_message.Message):
+    __slots__ = ("success", "error")
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    success: bool
+    error: str
+    def __init__(self, success: bool = ..., error: _Optional[str] = ...) -> None: ...
+
+class LoginRequest(_message.Message):
+    __slots__ = ("login", "password")
+    LOGIN_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    login: str
+    password: str
+    def __init__(self, login: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
+
+class LoginResponse(_message.Message):
+    __slots__ = ("success", "token", "error")
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    ERROR_FIELD_NUMBER: _ClassVar[int]
+    success: bool
+    token: str
+    error: str
+    def __init__(self, success: bool = ..., token: _Optional[str] = ..., error: _Optional[str] = ...) -> None: ...

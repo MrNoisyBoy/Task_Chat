@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service Otp {
+  rpc InitOtp(RequestInitOtp) returns (ResponseInitOtp);
+  rpc CheckOtp(RequestCheckOtp) returns (ResponseCheckOtp);
+}
+
+message RequestInitOtp {
+  string login = 1;
+}
+
+message ResponseInitOtp {
+  string secret = 1;
+  string error = 2;
+}
+
+message RequestCheckOtp {
+  string login = 1;
+  string otp = 2;
+}
+
+message ResponseCheckOtp {
+  bool valid = 1;
+  string error = 2;
+}
